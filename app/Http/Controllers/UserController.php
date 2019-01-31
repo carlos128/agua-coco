@@ -28,7 +28,7 @@ class UserController extends Controller{
 		try{
 			
 			$pass=Hash::make($request->input('userPassword'));
-			$user->idUser=strtoupper(uniqid());
+			$user->iduser=strtoupper(uniqid());
 			$user->userName= $request->input('userName');
 			$user->userPassword=$pass;
 			$user->isLogin=1;
