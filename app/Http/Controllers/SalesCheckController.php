@@ -29,14 +29,14 @@ class SalesCheckController extends Controller{
 		
 		try{
 			
-			$salesCheck->idSalesCheck=strtoupper(uniqid());
-			$salesCheck->valuDiscount=$request->input("valuDiscount");
+			$salesCheck->idsalescheck=strtoupper(uniqid());
+			$salesCheck->valudiscount=$request->input("valuDiscount");
 			$salesCheck->fk_id_product_sales=$request->input("fk_id_product_sales");	
             $salesCheck->fk_id_profile_sales=$request->input("fk_id_profile_sales");
             $salesCheck->fk_id_bill_sales=$request->input("fk_id_bill_sales");	
 			$salesCheck->active=1;
-			$salesCheck->crateBy=$request->input('userName');
-			$salesCheck->createDt=$date;
+			$salesCheck->crateby=$request->input('userName');
+			$salesCheck->createdt=$date;
 			$salesCheck->save();
 
 			return response()->json(
@@ -59,7 +59,7 @@ class SalesCheckController extends Controller{
 
 	/* Obtine un usuario */
 	public  function onSelect(Request $request){
-		$id=$request->input("idSalesCheck");
+		$id=$request->input("idsalescheck");
 		
 		try{
 			$data = SalesCheck::find( $id);

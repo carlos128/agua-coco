@@ -55,12 +55,12 @@ class AuthController  extends Controller{
      */
     public function authenticate(User $user) {
         $this->validate($this->request, [
-            'userName'     => 'required|email',
-            'userPassword'  => 'required'
+            'username'     => 'required|email',
+            'userpassword'  => 'required'
         ]);
 
         // Find the user by email
-        $user = User::where('userName', $this->request->input('userName'))->first();
+        $user = User::where('username', $this->request->input('username'))->first();
 
         if (!$user) {
             // You wil probably have some sort of helpers or whatever
@@ -73,7 +73,7 @@ class AuthController  extends Controller{
         }
 
         // Verify the password and generate the token
-        if (Hash::check($this->request->input('userPassword'), $user->userPassword)) {
+        if (Hash::check($this->request->input('userpassword'), $user->userPassword)) {
             return response()->json([
                 'token' => $this->jwt($user)
             ], 200);

@@ -92,13 +92,13 @@ class UserController extends Controller{
 			
 			$user = User::find($id);
 			$pass=Hash::make($request->input('userPassword'));
-			$user->idUser=$id;
-			$user->userName= $request->input('userName');
-			$user->userPassword=$pass;
-			$user->isLogin=1;
+			$user->iduser=$id;
+			$user->username= $request->input('userName');
+			$user->userpassword=$pass;
+			$user->islogin=1;
 			$user->active=1;
-			$user->updateBy=$request->input('userName');
-			$user->updateDt=$date;
+			$user->updateby=$request->input('userName');
+			$user->updatedt=$date;
 			$user->save();
 
 			return response()->json(

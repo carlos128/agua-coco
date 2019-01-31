@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Discount  extends  Model {
 	
 	public  $timestamps=false;
-	protected $primaryKey = 'idDiscount'; 
+	protected $primaryKey = 'iddiscount'; 
 	public $incrementing = false;
 }

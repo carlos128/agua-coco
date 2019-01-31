@@ -29,15 +29,15 @@ class ProductController extends Controller{
 		try{
 			
 			
-			$product->idProduct=strtoupper(uniqid());
-			$product->nameProduct=$request->input("nameProduct");
-			$product->desProduct=$request->input("desProduct");	
-			$product->priceProduc=$request->input("priceProduc");	
-			$product->imageProduc=$request->input("imageProduc");
+			$product->idproduct=strtoupper(uniqid());
+			$product->nameproduct=$request->input("nameProduct");
+			$product->desproduct=$request->input("desProduct");	
+			$product->priceproduc=$request->input("priceProduc");	
+			$product->imageproduc=$request->input("imageProduc");
 			$product->active=1;
-			$product->crateBy=$request->input('userName');
-			$product->createDt=$date;
-			$product->updateBy="";
+			$product->crateby=$request->input('userName');
+			$product->createdt=$date;
+			$product->updateby="";
 			$product->save();
 
 			return response()->json(
@@ -60,7 +60,7 @@ class ProductController extends Controller{
 
 	/* Obtine un usuario */
 	public  function onSelect(Request $request){
-		$id=$request->input("idProduct");
+		$id=$request->input("idproduct");
 		
 		try{
 			$data = Product::find( $id);
@@ -113,13 +113,13 @@ class ProductController extends Controller{
 		
 		try{
 			
-			$product->nameProduct=$request->input("nameProduct");
-			$product->desProduct=$request->input("desProduct");	
+			$product->nameproduct=$request->input("nameProduct");
+			$product->desproduct=$request->input("desProduct");	
 			$product->priceProduc=$request->input("priceProduc");	
-			$product->imageProduc=$request->input("imageProduc");
+			$product->imageproduc=$request->input("imageProduc");
 			$product->active=1;
-			$product->updateBy=$request->input('userName');
-			$product->updateDt=$date;
+			$product->updateby=$request->input('userName');
+			$product->updatedt=$date;
 			$product->save();
 
 			return response()->json(
@@ -145,7 +145,7 @@ class ProductController extends Controller{
 		try{
 			$product = new Product;
 			$product->find($id);
-			$product = Product::where('idProduct',$id);
+			$product = Product::where('idproduct',$id);
 			$product->delete();
 
 			return response()->json(

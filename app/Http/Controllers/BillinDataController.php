@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\BillinData;
 Use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Carbon\carbon;
+use Carbon\Carbon;
 
 class BillinDataController extends Controller{
 
@@ -30,16 +30,16 @@ class BillinDataController extends Controller{
 		try{
 			
 			
-			$billinData->idBillinData=strtoupper(uniqid());
+			$billinData->idbillinData=strtoupper(uniqid());
 			$billinData->addrres=$request->input("addrres");
 			$billinData->phone=$request->input("phone");	
 			$billinData->country=$request->input("country");	
 			$billinData->city=$request->input("city");
 			$billinData->fk_id_profile_billin=$request->input("fk_id_profile_billin");
 			$billinData->active=1;
-			$billinData->crateBy=$request->input('userName');
-			$billinData->createDt=$date;
-			$billinData->updateBy="";
+			$billinData->crateby=$request->input('userName');
+			$billinData->createdt=$date;
+			$billinData->updateby="";
 			$billinData->save();
 
 			return response()->json(
@@ -62,7 +62,7 @@ class BillinDataController extends Controller{
 
 	/* Obtine un usuario */
 	public  function onSelect(Request $request){
-		$id=$request->input("idBillinData");
+		$id=$request->input("idbillinData");
 		
 		try{
 			$data = Profile::find( $id);
@@ -121,8 +121,8 @@ class BillinDataController extends Controller{
 			$billinData->country=$request->input("country");	
 			$billinData->city=$request->input("city");
 			$billinData->active=1;
-			$billinData->updateBy=$request->input('userName');
-			$billinData->updateDt=$date;
+			$billinData->updateby=$request->input('userName');
+			$billinData->updatedt=$date;
 			$billinData->save();
 
 			return response()->json(
@@ -148,7 +148,7 @@ class BillinDataController extends Controller{
 		try{
 			$billinData = new BillinData;
 			$billinData->find($id);
-			$billinData = BillinData::where('idBillinData',$id);
+			$billinData = BillinData::where('idbillinData',$id);
 			$billinData->delete();
 
 			return response()->json(

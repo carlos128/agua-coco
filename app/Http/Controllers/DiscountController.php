@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Discount;
 Use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Carbon\carbon;
+use Carbon\Carbon;
 
 class DiscountController extends Controller{
 
@@ -29,14 +29,14 @@ class DiscountController extends Controller{
 		
 		try{
 			
-			$discount->idDiscount=strtoupper(uniqid());
-			$discount->dateStart=$request->input("dateStart");
-			$discount->dateEnd=$request->input("dateEnd");	
+			$discount->iddiscount=strtoupper(uniqid());
+			$discount->datestart=$request->input("dateStart");
+			$discount->dateend=$request->input("dateEnd");	
 			$discount->fk_id_product_discount=$request->input("fk_id_product_discount");	
 			$discount->active=1;
-			$discount->crateBy=$request->input('userName');
-			$discount->createDt=$date;
-			$discount->updateBy="";
+			$discount->crateby=$request->input('userName');
+			$discount->createdt=$date;
+			$discount->updateby="";
 			$discount->save();
 
 			return response()->json(
@@ -59,7 +59,7 @@ class DiscountController extends Controller{
 
 	/* Obtine un usuario */
 	public  function onSelect(Request $request){
-		$id=$request->input("idDiscount");
+		$id=$request->input("iddiscount");
 		
 		try{
 			$data = Discount::find( $id);
@@ -112,13 +112,13 @@ class DiscountController extends Controller{
 
 		try{
 			
-			$discount->idDiscount=strtoupper(uniqid());
-			$discount->dateStart=$request->input("dateStart");
-			$discount->dateEnd=$request->input("dateEnd");	
+			$discount->iddiscount=strtoupper(uniqid());
+			$discount->datestart=$request->input("dateStart");
+			$discount->dateend=$request->input("dateEnd");	
 			$discount->fk_id_product_discount=$request->input("fk_id_product_discount");	
 			$discount->active=1;
-			$discount->updateBy=$request->input('userName');
-			$discount->updateDt=$date;
+			$discount->updateby=$request->input('userName');
+			$discount->updatedt=$date;
 			$discount->save();
 
 			return response()->json(
@@ -144,7 +144,7 @@ class DiscountController extends Controller{
 		try{
 			$discount = new Discount;
 			$discount->find($id);
-			$discount = Discount::where('idProduct',$id);
+			$discount = Discount::where('iddiscount',$id);
 			$discount->delete();
 
 			return response()->json(

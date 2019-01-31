@@ -28,15 +28,15 @@ class ProfileController extends Controller{
 		try{
 			
 			
-			$profile->idProfile=strtoupper(uniqid());
-			$profile->firstName=$request->input("firstName");
-			$profile->lastName=$request->input("lastName");	
+			$profile->idprofile=strtoupper(uniqid());
+			$profile->firstname=$request->input("firstName");
+			$profile->lastname=$request->input("lastName");	
 			$profile->identification=$request->input("identification");	
 			$profile->fk_id_users_profile=$request->input("fk_id_users_profile");	
 			$profile->active=1;
-			$profile->crateBy=$request->input('userName');
-			$profile->createDt=$date;
-			$profile->updateBy="";
+			$profile->crateby=$request->input('userName');
+			$profile->createdt=$date;
+			$profile->updateby="";
 			$profile->save();
 
 			return response()->json(
@@ -94,12 +94,12 @@ class ProfileController extends Controller{
 		try{
 			
 			$profile = Profile::find($id);
-			$profile->firstName=$request->input("firstName");
-			$profile->lastName=$request->input("lastName");	
+			$profile->firstname=$request->input("firstName");
+			$profile->lastname=$request->input("lastName");	
 			$profile->identification=$request->input("identification");	
 			$profile->active=1;
-			$profile->updateBy=$request->input('userName');
-			$profile->updateDt=$date;
+			$profile->updateby=$request->input('userName');
+			$profile->updatedt=$date;
 			$profile->save();
 
 			return response()->json(
