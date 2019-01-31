@@ -29,13 +29,13 @@ class UserController extends Controller{
 			
 			$pass=Hash::make($request->input('userPassword'));
 			$user->iduser=strtoupper(uniqid());
-			$user->userName= $request->input('userName');
-			$user->userPassword=$pass;
-			$user->isLogin=1;
+			$user->username= $request->input('userName');
+			$user->userpassword=$pass;
+			$user->islogin=1;
 			$user->active=1;
-			$user->crateBy=$request->input('userName');
-			$user->createDt=$date;
-			$user->updateBy="";
+			$user->crateby=$request->input('userName');
+			$user->createdt=$date;
+			$user->updateby="";
 			$user->save();
 
 			return response()->json(
