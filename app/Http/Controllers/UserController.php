@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 Use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Carbon\carbon;
+use Carbon\Carbon;
 
 
 class UserController extends Controller{
